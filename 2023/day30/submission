@@ -1,0 +1,129 @@
+Kubernetes Overview:
+Kubernetes, often abbreviated as K8s, is an open-source container orchestration platform designed to automate the deployment, scaling, and management of containerized applications. Originally developed by Google, it is now maintained by the Cloud Native Computing Foundation (CNCF).
+
+Key Features of Kubernetes:
+Container Orchestration: Automates the deployment, scaling, and operations of application containers across clusters of hosts.
+
+Service Discovery and Load Balancing: Kubernetes can expose a container using a DNS name or using their own IP address. If traffic to a container is high, Kubernetes can load-balance and distribute the network traffic so that the deployment is stable.
+
+Storage Orchestration: Automatically mounts a storage system of your choice, such as local storage, public cloud providers, and more.
+
+Automated Rollouts and Rollbacks: Kubernetes can automate the deployment of desired application states, manage updates, and revert them if needed.
+
+**Self-healing: **Restarts containers that fail, replaces and reschedules containers when nodes die, and kills containers that don't respond to user-defined health checks.
+
+Secret and Configuration Management: Kubernetes can manage and deploy sensitive information and configuration without exposing secrets to the stack configuration.
+
+Batch Execution: Besides managing services, Kubernetes can manage your batch and CI workloads, replacing containers that fail and manage parallel processing.
+
+Tasks:
+1.What is Kubernetes? Write in your own words and why do we call it k8s?
+Kubernetes is a powerful open-source platform that helps manage containerized applications by automating their deployment, scaling, and operations. Containers are lightweight, portable, and isolated environments that include everything needed to run a piece of software, such as code, runtime, libraries, and settings. Kubernetes simplifies the complex process of orchestrating these containers across a cluster of machines, ensuring that applications run efficiently, remain available, and can scale according to demand.
+The term "K8s" is a shortcut for Kubernetes, which means "helmsman" or "pilot" in Greek, reflecting its role in guiding and managing containers. "K8s" is formed by replacing the eight letters "ubernete" in the middle of "Kubernetes" with the digit "8," a common shorthand in the tech industry.
+
+2.What are the benefits of using k8s?
+Benefits of Using Kubernetes (K8s):
+
+1.Portability and Flexibility:
+
+Kubernetes works with any container runtime and is compatible with multiple cloud platforms, on-premises servers, and hybrid environments. This makes it highly portable and flexible for different infrastructure setups.
+
+2.Scalability:
+
+Automatically scales applications up or down based on demand. Kubernetes can manage large clusters efficiently and ensures that resources are used optimally.
+
+3.High Availability and Resilience:
+
+Ensures high availability of applications by automatically handling container failures, rescheduling them on healthy nodes, and maintaining the desired state of the application.
+
+4.Automated Rollouts and Rollbacks:
+
+Kubernetes can automatically roll out updates and roll back changes if something goes wrong. This simplifies the process of updating applications without downtime.
+
+5.Self-healing Capabilities:
+
+Monitors the health of nodes and containers, restarting or replacing them if they fail. This self-healing capability ensures that applications remain available and perform optimally.
+
+3.Explain the architecture of Kubernetes?
+
+Image description
+
+Kubernetes architecture is designed to manage containerized applications in a distributed environment, providing mechanisms for deployment, maintenance, and scaling. The architecture is divided into two main components: the control plane and the nodes.
+
+1. Control Plane
+The control plane is responsible for managing the Kubernetes cluster, making global decisions about the cluster (like scheduling), and detecting and responding to cluster events (such as starting up a new pod when a deployment's replicas field is unsatisfied).
+
+Kube-APIserver:
+
+The API server is the entry point for all REST commands used to control the cluster. It exposes the Kubernetes API and is responsible for validating and configuring the data for the API objects.
+etcd:
+
+A key-value store used to store all cluster data. It serves as the backing store for all cluster state and configuration.
+Kube-Scheduler:
+
+Responsible for distributing containers (pods) across the available nodes in the cluster. It ensures that pod placement meets the resource requirements, policy constraints, and availability goals.
+Kube-Controller-Manager:
+
+Runs controller processes. Controllers are responsible for noticing and responding when nodes, endpoints, and other resources go down. They make decisions to bring the current state of the cluster closer to the desired state.
+Cloud-Controller-Manager:
+
+Integrates with the cloud provider's API to manage cloud-specific resources like load balancers, storage, and networking.
+2. Nodes
+Nodes, also known as worker nodes, are the machines (virtual or physical) that run containerized applications. Each node has several components that are managed by the control plane.
+
+Kubelet:
+
+An agent that runs on each node in the cluster. It ensures that containers are running in a pod. The Kubelet receives pod specifications from the API server and ensures that the containers described in those pod specifications are running and healthy.
+Kube-Proxy:
+
+Maintains network rules on nodes, allowing network communication to your pods from network sessions inside or outside of your cluster. It manages the networking for pods, ensuring that each pod gets its own IP address and that containers can communicate with each other and with the outside world.
+Container Runtime:
+
+The software that runs containers. Kubernetes supports several container runtimes, including Docker, containerd, and CRI-O.
+3. Additional Concepts
+Pods:
+
+The smallest and simplest Kubernetes object. A pod represents a single instance of a running process in your cluster and can contain one or more containers. Pods are the atomic unit of deployment in Kubernetes.
+Services:
+
+An abstraction which defines a logical set of pods and a policy by which to access them. Services enable loose coupling between dependent pods.
+Volumes:
+
+A directory, possibly with data in it, which is accessible to the containers in a pod. Kubernetes supports several types of volumes, including persistent volumes that exist beyond the lifecycle of individual pods.
+Namespaces:
+
+Provide a mechanism to partition resources within a single cluster. Namespaces are intended for use in environments with many users spread across multiple teams, or projects.
+Deployments:
+
+Define the desired state for your application, such as which images to use for its containers, the number of pod replicas, and update policies. Deployments manage the process of rolling updates and rollbacks.
+
+4.What is Control Plane?
+The control plane in Kubernetes is the central management layer responsible for maintaining the desired state of the Kubernetes cluster. It manages the worker nodes and the pods running on them, ensuring that the cluster operates as intended. The control plane makes global decisions about the cluster (like scheduling), and detects and responds to cluster events (such as when a node or pod goes down).
+
+Key Components of the Control Plane:
+Kube-APIserver:
+
+Role: The API server is the front-end of the Kubernetes control plane, acting as the primary interface for all interactions with the cluster. It exposes the Kubernetes API, which users and cluster components interact with.
+Functions: It handles RESTful requests, performs validations, and updates the state of the cluster.
+etcd:
+
+Role: etcd is a distributed, reliable key-value store that Kubernetes uses to store all its cluster data.
+Functions: It stores the entire configuration and state of the cluster persistently, including information about nodes, pods, services, and configurations.
+Kube-Scheduler:
+
+Role: The scheduler is responsible for assigning pods to nodes.
+Functions: It watches for newly created pods with no assigned node and assigns them a node based on resource requirements, policies, and constraints.
+Kube-Controller-Manager:
+
+Role: Runs a set of controller processes.
+Functions: Each controller manages a particular function in the cluster, such as:
+Node Controller: Manages nodes' state and handles node failures.
+Replication Controller: Ensures that the desired number of pod replicas are running.
+Endpoint Controller: Manages endpoint objects, linking services and pods.
+Service Account & Token Controllers: Manage service accounts and API access tokens.
+Cloud-Controller-Manager:
+
+Role: Integrates Kubernetes with underlying cloud provider APIs.
+Functions: Manages cloud-specific resources, such as load balancers, storage volumes, and networking. This component enables Kubernetes to interact with cloud services for operations like creating a load balancer or attaching a storage volume.
+
+

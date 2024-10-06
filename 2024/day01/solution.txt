@@ -1,0 +1,39 @@
+# Introduction - Day 1
+
+Welcome to the #90DaysOfDevOps Challenge with the #TrainWithShubham Community! Today, we begin our journey into the world of DevOps. Here’s what you need to do:
+
+1. **Fork this Repository:**
+   - Go to the repository on GitHub and fork it to your own account. This will allow you to track your progress and contribute.
+
+2. **Start with a DevOps Roadmap:**
+   - Watch the introductory video on DevOps: [DevOps Roadmap](https://youtu.be/g_QHuGq3E2Y?si=fR9K56-JevZTfrBK)
+
+3. **Write a LinkedIn Post or a Small Article:**
+   - Share your understanding of DevOps based on the video and your research. Cover the following points:
+
+     - **What is DevOps:**
+
+     DevOps combines cultural philosophies, practices, and tools to improve collaboration and communication between software development and IT operations teams. This collaboration allows faster development cycles, improved software quality, and quicker response to customer needs.
+
+Traditionally, development and operations teams worked separately. Developers would write the code, and then hand it off to operations to deploy and msaintain it. This could lead to inefficiencies and friction between the two teams. DevOps breaks down these silos and encourages the two teams to work together throughout the entire software development lifecycle.
+       
+       
+     - **What is Automation, Scaling, and Infrastructure:**
+
+     Automation is the use of technology and tools to perform tasks and processes without human intervention.
+
+It involves scripting or programming to automate repetitive and manual tasks, reducing the need for manual intervention and human error.
+
+Automation can be applied to various areas, such as software testing, deployment, infrastructure provisioning, and monitoring.
+
+By automating tasks, organizations can improve efficiency, reduce errors, and free up valuable time for teams to focus on more critical and creative work.
+       
+       
+     - **Why DevOps is Important:**
+     Scaling is the ability to handle increased workloads or accommodate growth without sacrificing performance or reliability.
+
+In the context of software systems, scaling involves adding resources, such as servers or computing power, to handle higher demands.
+
+Scaling can be achieved vertically (scaling up) by increasing the capacity of individual resources, or horizontally (scaling out) by adding more resources in parallel.
+
+Effective scaling ensures that software applications can handle increased user traffic, data processing, or other workloads while maintaining optimal performance.
